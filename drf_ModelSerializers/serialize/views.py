@@ -34,7 +34,6 @@ class TeacherAPI(APIView):
 
     def post(self, request, *args, **kwargs):
         data = request.data
-        print(data)
         if isinstance(data, dict):
             many = False
         elif isinstance(data, list):
@@ -67,7 +66,7 @@ class TeacherAPI(APIView):
             })
         return Response({
             'status': 400,
-            'message': '删除失败或存在'
+            'message': '删除失败或不存在'
         })
 
     def put(self, request, *args, **kwargs):

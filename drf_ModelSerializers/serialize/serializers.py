@@ -10,16 +10,17 @@ class DepartmentModelsSerialisers(serializers.ModelSerializer):
 
 
 class TeacherModelsSerializers(serializers.ModelSerializer):
-    # department = DepartmentModelsSerialisers()
+    department = DepartmentModelsSerialisers()
     def validate(self, attrs):
         return attrs
 
     def validate_gender(self, obj):
         print(obj)
         return obj
+
     class Meta:
         model = Teacher
-        fields = ('name', 'gender', 'department')
+        fields = ('name', 'gender1', 'department')
         extra_kwargs = {
             'name': {
                 'required': True,
@@ -30,6 +31,12 @@ class TeacherModelsSerializers(serializers.ModelSerializer):
                     'min_length': '名称不能少于两个字符'
                 }
             },
+            'gender1': {
+                "read_only": True
+            },
+            'department': {
+                "write_only": True
+            }
 
         }
 
