@@ -107,5 +107,10 @@ class User(BaseModel):
     def gender1(self):
         return self.get_gender_display()
 
+    # @property
+    # def re_pwd(self):
+    #     return
+
     def __str__(self):
         return self.username
+

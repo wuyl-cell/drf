@@ -9,6 +9,5 @@ urlpatterns = [
     path('bookGeneric/<str:id>', views.BookGenericAPIView.as_view()),
     path('userViewSet/', views.UserViewSetViewRegister.as_view({'post':'user_register'})),
     path('userViewSetlogin/', views.UserViewSetView.as_view({'post':'user_login'})),
-    path('userViewSet/<str:id>', views.UserViewSetViewRegister.as_view({'post':'user_register'})),
 ]
 

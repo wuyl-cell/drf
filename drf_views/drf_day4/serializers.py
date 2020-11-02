@@ -70,7 +70,7 @@ class BookModelSerializerV2(serializers.ModelSerializer):
 class BookModelSerializerV3(serializers.ModelSerializer):
     class Meta:
         model = Book
-        fields = ("book_name", "price", "publish", "authors", "pic")
+        fields = ("book_name", "price", "publish", "authors", "pic", 'author_list')
 
         extra_kwargs = {
             "book_name": {
@@ -92,13 +92,17 @@ class BookModelSerializerV3(serializers.ModelSerializer):
             "authors": {
                 "write_only": True
             },
+            'author_list': {
+                'read_only': True
+            }
         }
 
 
 class UserModelSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = User
-        fields = ('username', 'password', 'gender', 'gender1', 'age')
+        fields = ('username', 'password', 'gender', 'gender1', 'age', 're_pwd')
         extra_kwargs = {
             'username': {
                 'required': True,
@@ -116,5 +120,13 @@ class UserModelSerializer(serializers.ModelSerializer):
             'gender1': {
                 "read_only": True
             },
+            're_pwd': {
+                "write_only": True
+            }
+
         }
 
+    def validate(self, attrs):
+        print(attrs.get('password'))
+        print(attrs.get('re_pwd'))
+        return attrs
