@@ -99,6 +99,7 @@ class BookModelSerializerV3(serializers.ModelSerializer):
 
 
 class UserModelSerializer(serializers.ModelSerializer):
+    re_pwd = serializers.IntegerField(write_only=True)
 
     class Meta:
         model = User
@@ -120,13 +121,12 @@ class UserModelSerializer(serializers.ModelSerializer):
             'gender1': {
                 "read_only": True
             },
-            're_pwd': {
-                "write_only": True
-            }
 
         }
 
     def validate(self, attrs):
-        print(attrs.get('password'))
-        print(attrs.get('re_pwd'))
+        password = attrs.get('password')
+        re_password = attrs.pop('re_pwd')
+        if password != re_password:
+            raise serializers.ValidationError({'re_password': '两次密码不一致'})
         return attrs
