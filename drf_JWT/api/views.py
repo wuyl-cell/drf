@@ -42,7 +42,7 @@ class PhoneView(ListAPIView):
     serializer_class = PhoneSerializer
 
     filter_backends = [SearchFilter, OrderingFilter, DjangoFilterBackend]
-    search_fields = ['com_name']
-    ordering = ['price']
-    # pagination_class = MyLimitOffsetPagination
-    filter_class = PhoneFilter
+    # search_fields = ['com_name', 'price']
+    # ordering = ['price']
+    pagination_class = MyPageNumberPagination
+    # filter_class = PhoneFilter
