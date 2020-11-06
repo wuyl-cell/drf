@@ -1,7 +1,10 @@
 <template>
     <div class="footer">
         <ul>
-            <li v-for="(a, index) in name" :key="index">{{ a.title }}</li>
+            <li v-for="(t_nav, index) in t_nav_list" :key="index">
+                <a v-if="t_nav.is_site" :href="t_nav.link" style="color: #f7f7f7">{{ t_nav.title }}</a>
+                <router-link v-else :to="t_nav.link">{{ t_nav.title }}</router-link>
+            </li>
 <!--            <li>关于我们</li>-->
 <!--            <li>联系我们</li>-->
 <!--            <li>百知教育</li>-->
@@ -17,14 +20,14 @@ export default {
     name: "Footter",
     data() {
         return {
-            name: []
+            t_nav_list: []
         }
     },
     methods: {
         get_nav() {
             this.$axios.get(this.$settings.HOST + 'home/footer/').then(
                 response => {
-                    this.name = response.data;
+                    this.t_nav_list = response.data;
                 }
             )
         }

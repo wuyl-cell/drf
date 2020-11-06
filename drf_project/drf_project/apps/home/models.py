@@ -10,6 +10,9 @@ class BaseModel(models.Model):
     create_time = models.DateField(auto_now_add=True, verbose_name='创建时间')
     update_time = models.DateField(auto_now=True, verbose_name='修改时间')
 
+    class Meta:
+        abstract = True
+
 
 class Banner(BaseModel):
     img = models.ImageField(upload_to="banner", max_length=255, verbose_name="轮播图")

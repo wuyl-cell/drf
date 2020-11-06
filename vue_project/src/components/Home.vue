@@ -17,7 +17,8 @@ export default {
         Header: Header,
         Banner: Banner,
         Footer: Footter,
-    }
+    },
+
 }
 </script>
 

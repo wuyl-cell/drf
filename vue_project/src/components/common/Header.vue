@@ -3,23 +3,37 @@
         <div class="header">
             <div class="content">
                 <div class="logo full-left">
-                    <router-link to="/"><img src="/static/image/logo.svg" alt=""></router-link>
+                    <router-link to="/"><img src="/static/image/logo.png" alt=""></router-link>
                 </div>
                 <ul class="nav full-left">
-                    <li v-for="(t, index) in name"><span>{{ t.title }}</span></li>
+                    <li v-for="(h_nav, index) in h_nav_list">
+                        <a v-if="h_nav.is_site" :href="h_nav.link">{{ h_nav.title }}</a>
+                        <router-link v-else :to="h_nav.link">{{ h_nav.title }}</router-link>
+                    </li>
 <!--                    <li><span>Java进阶之路</span></li>-->
 <!--                    <li><span>大数据成功法门</span></li>-->
 <!--                    <li><span>Python全栈</span></li>-->
 <!--                    <li><span>人工智能的魅力</span></li>-->
 <!--                    <li><span>百知教育</span></li>-->
                 </ul>
-                <div class="login-bar full-right">
+                <div class="login-bar full-right" v-if="is_login">
                     <div class="shop-cart full-left">
                         <img src="/static/image/cart.svg" alt="">
                         <span><router-link to="/cart">购物车</router-link></span>
                     </div>
                     <div class="login-box full-left">
-                        <span>登录</span>
+                        <span>个人中心</span>
+                        &nbsp;|&nbsp;
+                        <span @click="del_token">退出登陆</span>
+                    </div>
+                </div>
+                <div class="login-bar full-right" v-else>
+                    <div class="shop-cart full-left">
+                        <img src="/static/image/cart.svg" alt="">
+                        <span><router-link to="/cart">购物车</router-link></span>
+                    </div>
+                    <div class="login-box full-left">
+                        <router-link to="/login">登录</router-link>
                         &nbsp;|&nbsp;
                         <span>注册</span>
                     </div>
@@ -34,20 +48,38 @@ export default {
     name: "Header",
     data() {
         return {
-            name: []
+            h_nav_list: [],
+            is_login: false,
+            // token: '',
         }
     },
     methods: {
         get_nav() {
             this.$axios.get(this.$settings.HOST + 'home/header/').then(
                 response => {
-                    this.name = response.data;
+                    this.h_nav_list = response.data;
                 }
             )
+        },
+        get_user(){
+            console.log(sessionStorage.token)
+            this.token = sessionStorage.token
+            if(sessionStorage.token){
+                this.is_login = true
+            }
+            else{
+                this.is_login = false
+            }
+        },
+        del_token(){
+            sessionStorage.removeItem('token')
+            this.$router.push('/login')
         }
     },
     created() {
         this.get_nav();
+        this.get_user();
+
     }
 }
 </script>

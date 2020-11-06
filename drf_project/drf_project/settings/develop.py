@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/2.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
-
+import datetime
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'reversion',
     'rest_framework',
-    'home'
+    'home',
+    'user',
 ]
 
 MIDDLEWARE = [
@@ -188,7 +189,23 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 REST_FRAMEWORK = {
     # DRF配置的全局异常处理的方法
-    'EXCEPTION_HANDLER': 'drf_day4.exceptions.exception_handler',
+    'EXCEPTION_HANDLER': 'drf_project.utils.exceptions.exception_handler',
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ]
+}
+#jwt配置
+JWT_AUTH = {
+    'JWT_EXPIRATIONS_DELTA': datetime.timedelta(seconds=300),
+    'JWT_RESPONSE_PAYLOAD_HANDLER':
+        'user.utils.jwt_response_payload_handler',
 }
 
+
 CORS_ORIGIN_ALLOW_ALL = True
+AUTH_USER_MODEL = 'user.User'
+
+#指定多条件认证类
+AUTHENTICATION_BACKENDS = ['user.utils.UserAuthBackend']

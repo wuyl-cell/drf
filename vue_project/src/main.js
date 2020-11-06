@@ -9,7 +9,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import '../static/css/global.css'
 import axios from 'axios'
 import settings from "./settings";
-
+import '../static/js/gt'
 
 Vue.prototype.$settings = settings;
 Vue.config.productionTip = false
