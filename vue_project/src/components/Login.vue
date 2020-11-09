@@ -8,12 +8,15 @@
             </div>
             <div class="login_box">
                 <div class="title">
-                    <span>密码登录</span>
-                    <span>短信登录</span>
+                    <span @click="change_name" v-show="is_show">密码登录</span>
+                    <span @click="change_name" v-show="!is_show">密码登录</span>
+                    <span @click="change_message" v-show="is_show">短信登录</span>
+                    <span @click="change_message" v-show="!is_show">短信登录</span>
                 </div>
-                <div class="inp" v-if="">
-                    <input type="text" placeholder="用户名 / 手机号码" class="user" v-model="username" @blur="check_username">
-                    <input type="password" name="" class="pwd" placeholder="密码" v-model="password" @blur="check_password">
+
+                <div class="inp" v-if="is_show">
+                    <input type="text" placeholder="用户名 / 手机号码" class="user" v-model="username">
+                    <input type="password" name="" class="pwd" placeholder="密码" v-model="password">
                     <div id="geetest1"></div>
                     <div class="rember">
                         <p>
@@ -22,19 +25,26 @@
                         </p>
                         <p>忘记密码</p>
                     </div>
-                    <button class="login_btn btn btn-primary" @click="get_captcha">登录</button>
+                    <button class="login_btn btn btn-primary" @click="get_captcha" v-bind:disabled="dis">登录</button>
                     <p class="go_login">没有账号
-                        <router-link to="/user/register/">立即注册</router-link>
+                        <router-link to="/register/">立即注册</router-link>
                     </p>
                 </div>
-                <div class="inp" v-show="">
-                    <input type="text" placeholder="手机号码" class="user">
-                    <input type="text" class="pwd" placeholder="短信验证码">
-                    <button id="get_code" class="btn btn-primary">获取验证码</button>
-                    <button class="login_btn">登录</button>
-                    <span class="go_login">没有账号
-                    <router-link to="/user/register/">立即注册</router-link>
-                </span>
+                <div class="inp" v-else>
+                    <input type="text" placeholder="手机号码" class="user" v-model="mobile" @blur="check_mobile">
+
+                    <input type="text" class="pwd" placeholder="短信验证码" v-model="code">
+                    <div class="rember">
+                        <p>
+                            <button id="get_code1" class="btn btn-primary" @click="send_code" v-if="show">获取验证码</button>
+                            <button id="get_code2" class="btn btn-primary" v-else>{{ count }}s后重新发送</button>
+                        </p>
+                    </div>
+
+                    <button class="login_btn" @click="message_login">登录</button>
+                    <p class="go_login">没有账号
+                        <router-link to="/register/">立即注册</router-link>
+                    </p>
                 </div>
             </div>
         </div>
@@ -48,20 +58,17 @@ export default {
         return {
             username: '',
             password: '',
+            mobile: '',
+            is_show: true,
+            mobile_check: false,
+            dis: false,
+            code: '',
+            count: '',
+            show: true,
+            timer: null,
         }
     },
     methods:{
-        check_username(){
-            if(this.username){
-
-            }
-            else{
-
-            }
-        },
-        check_password(){
-
-        },
         handlerPopup(captchaObj) {
             let self = this;
             captchaObj.onSuccess(function () {
@@ -84,27 +91,42 @@ export default {
             captchaObj.appendTo("#geetest1");
         },
         get_captcha(){
-            this.$axios({
-                url: this.$settings.HOST + 'user/captcha/',
-                method: "get",
-                params: {
-                    username: this.username
-                },
-            }).then(
-                response => {
-                    console.log(response.data);
-                    let data = JSON.parse(response.data);
-                    initGeetest({
-                        gt: data.gt,
-                        challenge: data.challenge,
-                        product: "popup", // 产品形式，包括：float，embed，popup。注意只对PC版验证码有效
-                        offline: !data.success, // 表示用户后台检测极验服务器是否宕机，一般不需要关注
-                        new_captcha: data.new_captcha
-                    }, this.handlerPopup);
-                }
-            );
-        },
+            if (this.username && this.password){
+                this.$axios({
+                    url: this.$settings.HOST + 'user/captcha/',
+                    method: "get",
+                    params: {
+                        username: this.username
+                    },
+                }).then(
+                    response => {
+                        let data = JSON.parse(response.data);
+                        initGeetest({
+                            gt: data.gt,
+                            challenge: data.challenge,
+                            product: "popup", // 产品形式，包括：float，embed，popup。注意只对PC版验证码有效
+                            offline: !data.success, // 表示用户后台检测极验服务器是否宕机，一般不需要关注
+                            new_captcha: data.new_captcha
+                        }, this.handlerPopup);
+                    }
+                ).catch(error => {
+                    this.$message( {
+                        message: error.response.data.message,
+                        type: 'warning',
+                        duration: 1000,
+                    })
 
+                });
+            }
+            else{
+                this.$message( {
+                    message: '请输入用户名和密码',
+                    type: 'warning',
+                    duration: 1000,
+                })
+            }
+
+        },
         user_login(){
             this.$axios({
                 url: this.$settings.HOST + 'user/login/',
@@ -121,8 +143,8 @@ export default {
                             type: 'success',
                             duration: 1000,
                         })
-                        sessionStorage.token = response.data.token
                     }
+                    sessionStorage.token = response.data.token
                     this.$router.push('/home')
                 }
             ).catch(error => { console.log(error);
@@ -130,6 +152,121 @@ export default {
             })
 
         },
+        change_message(){
+            this.is_show = false
+        },
+        change_name(){
+            this.is_show = true
+        },
+        check_mobile(){
+            let phone=/^[1][3,4,5,7,8][0-9]{9}$/;
+            if (phone.test(this.mobile)){
+                this.$axios({
+                    url: this.$settings.HOST + 'user/phone_login/',
+                    method: "get",
+                    params: {
+                        phone: this.mobile
+                    }
+                }).then(
+                    res => {
+                        this.mobile_check = true
+                    }
+                ).catch(
+                    error => {
+                        this.mobile_check = false
+                        this.$message({
+                            message: error.response.data.message,
+                            type: 'warning',
+                            duration: 1000,
+                        })
+                    }
+                )
+            }
+            else {
+                this.mobile_check = false
+                this.$message( {
+                    message: '手机号格式错误',
+                    type: 'warning',
+                    duration: 1000,
+                })
+            }
+        },
+        send_code(){
+            if(this.mobile_check){
+                const TIME_COUNT = 60;
+                this.$axios({
+                    url: this.$settings.HOST + 'user/get_code/',
+                    method: "get",
+                    params: {
+                        phone: this.mobile
+                    }
+                }).then(
+                    res => {
+                        this.$message({
+                            message: res.data,
+                            type: 'seccess',
+                            duration: 1000,
+                        })
+                        this.count = TIME_COUNT;
+                        this.show = false;
+                        this.timer = setInterval(() => {
+                            if (this.count > 0 && this.count <= TIME_COUNT){
+                                this.count --;
+                            }
+                            else{
+                                this.show = true;
+                                clearInterval(this.timer);
+                                this.timer = null;
+                            }
+                        }, 1000)
+                    }
+                ).catch(
+                    error => {
+                        this.$message({
+                            message: error.response.data.message,
+                            type: 'waring',
+                            duration: 1000,
+                        })
+                    }
+                )
+            }
+            else{
+                this.$message({
+                    message: '请输入正确的手机号',
+                    type: 'waring',
+                    duration: 1000,
+                })
+            }
+        },
+        message_login(){
+            this.$axios({
+                url: this.$settings.HOST + 'user/message_login/',
+                method: "get",
+                params: {
+                    code: this.code,
+                    phone: this.mobile
+                }
+            }).then(
+                res => {
+                    this.$message({
+                        message: '恭喜你，登陆成功！',
+                        type: 'seccess',
+                        duration: 1000,
+                    })
+                    sessionStorage['token'] = res.data.token
+                    this.$router.push('/')
+                }
+            ).catch(
+                error => {
+                    this.$message({
+                        message: error.response.data.message,
+                        type: 'warning',
+                        duration: 1000,
+                    })
+                }
+            )
+        }
+
     },
 }
 </script>
@@ -201,6 +338,11 @@ export default {
 }
 
 .login_box .title span:nth-of-type(1) {
+    color: #4a4a4a;
+    border-bottom: 2px solid #84cc39;
+}
+
+.login_box .title span:nth-of-type(4) {
     color: #4a4a4a;
     border-bottom: 2px solid #84cc39;
 }

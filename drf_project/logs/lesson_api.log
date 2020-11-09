@@ -1168,3 +1168,1468 @@ ERROR 2020-11-05 10:34:37,027 basehttp 124 "GET /home/footer/ HTTP/1.1" 500 2251
 ERROR 2020-11-05 16:51:27,244 basehttp 124 "GET /admin/user/user/ HTTP/1.1" 500 59
 ERROR 2020-11-05 16:51:44,798 basehttp 124 "GET /admin/user/user/ HTTP/1.1" 500 59
 ERROR 2020-11-05 19:38:26,187 basehttp 124 "GET /admin/ HTTP/1.1" 500 59
+ERROR 2020-11-06 15:32:44,306 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'username': [ErrorDetail(string='This field is required.', code='required')]}
+ERROR 2020-11-06 15:32:44,599 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20001
+ERROR 2020-11-06 15:48:55,090 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'phone': [ErrorDetail(string='手机号格式不正确', code='invalid')]}
+ERROR 2020-11-06 15:48:55,106 basehttp 124 "POST /user/register/ HTTP/1.1" 500 19995
+ERROR 2020-11-06 15:49:14,965 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'phone': [ErrorDetail(string='手机号格式不正确', code='invalid')]}
+ERROR 2020-11-06 15:49:14,979 basehttp 124 "POST /user/register/ HTTP/1.1" 500 19995
+ERROR 2020-11-06 15:49:41,774 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'phone': [ErrorDetail(string='用户 with this 手机号 already exists.', code='unique')]}
+ERROR 2020-11-06 15:49:41,786 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20029
+ERROR 2020-11-06 15:53:45,154 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'password': [ErrorDetail(string='密码必须大于六位数', code='invalid')]}
+ERROR 2020-11-06 15:53:45,172 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20007
+ERROR 2020-11-06 15:53:50,394 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'password': [ErrorDetail(string='密码必须是数字和字母的混合', code='invalid')]}
+ERROR 2020-11-06 15:53:50,409 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20031
+ERROR 2020-11-06 15:53:57,173 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'password': [ErrorDetail(string='密码必须是数字和字母的混合', code='invalid')]}
+ERROR 2020-11-06 15:53:57,186 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20031
+ERROR 2020-11-06 16:18:07,569 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'phone': [ErrorDetail(string='用户 with this 手机号 already exists.', code='unique')]}
+ERROR 2020-11-06 16:18:07,585 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20043
+ERROR 2020-11-06 16:20:08,946 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'phone': [ErrorDetail(string='用户 with this 手机号 already exists.', code='unique')], 'password': [ErrorDetail(string='密码必须是数字和字母的混合', code='invalid')]}
+ERROR 2020-11-06 16:20:08,959 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20230
+ERROR 2020-11-06 16:20:10,921 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'phone': [ErrorDetail(string='用户 with this 手机号 already exists.', code='unique')], 'password': [ErrorDetail(string='密码必须是数字和字母的混合', code='invalid')]}
+ERROR 2020-11-06 16:20:10,933 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20229
+ERROR 2020-11-06 16:20:35,755 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'password': [ErrorDetail(string='密码必须是数字和字母的混合', code='invalid')]}
+ERROR 2020-11-06 16:20:35,767 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20046
+ERROR 2020-11-06 16:21:47,476 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'password': [ErrorDetail(string='密码必须是数字和字母的混合', code='invalid')]}
+ERROR 2020-11-06 16:21:47,488 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20046
+ERROR 2020-11-06 16:22:03,034 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'password': [ErrorDetail(string='密码必须是数字和字母的混合', code='invalid')]}
+ERROR 2020-11-06 16:22:03,046 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20030
+ERROR 2020-11-06 16:22:18,431 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 167, in http_method_not_allowed
+    raise exceptions.MethodNotAllowed(request.method)
+rest_framework.exceptions.MethodNotAllowed: Method "GET" not allowed.
+ERROR 2020-11-06 16:22:18,447 basehttp 124 "GET /user/register/ HTTP/1.1" 500 19637
+ERROR 2020-11-06 16:22:50,105 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'phone': [ErrorDetail(string='This field is required.', code='required')], 'password': [ErrorDetail(string='This field is required.', code='required')]}
+ERROR 2020-11-06 16:22:50,118 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20144
+ERROR 2020-11-06 16:23:47,411 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'password': [ErrorDetail(string='密码必须是数字和字母的混合', code='invalid')]}
+ERROR 2020-11-06 16:23:47,424 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20046
+ERROR 2020-11-06 16:23:48,394 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'password': [ErrorDetail(string='密码必须是数字和字母的混合', code='invalid')]}
+ERROR 2020-11-06 16:23:48,407 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20046
+ERROR 2020-11-06 16:24:40,570 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'password': [ErrorDetail(string='密码必须是数字和字母的混合', code='invalid')]}
+ERROR 2020-11-06 16:24:40,583 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20046
+ERROR 2020-11-06 16:25:13,872 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'phone': [ErrorDetail(string='手机号格式不正确', code='invalid')], 'password': [ErrorDetail(string='密码必须是数字和字母的混合', code='invalid')]}
+ERROR 2020-11-06 16:25:13,885 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20196
+ERROR 2020-11-06 16:35:16,345 basehttp 124 "GET /admin/user/user/?_cols=username.email.first_name.last_name.is_staff.phone HTTP/1.1" 500 59
+ERROR 2020-11-06 16:35:27,024 basehttp 124 "GET /admin/ HTTP/1.1" 500 59
+ERROR 2020-11-06 16:40:28,233 basehttp 124 "GET /admin/ HTTP/1.1" 500 59
+ERROR 2020-11-06 16:41:23,935 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'phone': [ErrorDetail(string='手机号格式不正确', code='invalid')], 'password': [ErrorDetail(string='密码必须是数字和字母的混合', code='invalid')]}
+ERROR 2020-11-06 16:41:23,960 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20196
+ERROR 2020-11-06 16:46:47,579 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'phone': [ErrorDetail(string='手机号格式不正确', code='invalid')], 'password': [ErrorDetail(string='This field may not be blank.', code='blank')]}
+ERROR 2020-11-06 16:46:47,592 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20170
+ERROR 2020-11-06 20:01:13,587 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'phone': [ErrorDetail(string='手机号格式不正确', code='invalid')], 'password': [ErrorDetail(string='This field may not be blank.', code='blank')]}
+ERROR 2020-11-06 20:01:13,754 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20170
+ERROR 2020-11-06 20:59:44,243 basehttp 124 "GET /admin/ HTTP/1.1" 500 59
+ERROR 2020-11-06 21:14:38,410 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'password': [ErrorDetail(string='密码必须是数字和字母的混合', code='invalid')]}
+ERROR 2020-11-06 21:14:38,566 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20285
+ERROR 2020-11-06 21:34:36,839 exception 118 Internal Server Error: /user/phone/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 167, in http_method_not_allowed
+    raise exceptions.MethodNotAllowed(request.method)
+rest_framework.exceptions.MethodNotAllowed: Method "POST" not allowed.
+ERROR 2020-11-06 21:34:36,987 basehttp 124 "POST /user/phone/ HTTP/1.1" 500 19891
+ERROR 2020-11-06 21:34:51,356 exception 118 Internal Server Error: /user/phone/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 167, in http_method_not_allowed
+    raise exceptions.MethodNotAllowed(request.method)
+rest_framework.exceptions.MethodNotAllowed: Method "POST" not allowed.
+ERROR 2020-11-06 21:34:51,369 basehttp 124 "POST /user/phone/ HTTP/1.1" 500 19891
+ERROR 2020-11-07 17:16:29,149 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'password': [ErrorDetail(string='This field may not be blank.', code='blank')]}
+ERROR 2020-11-07 17:16:29,405 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20263
+ERROR 2020-11-08 10:15:14,168 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'password': [ErrorDetail(string='密码必须大于六位数', code='invalid')], 'code': [ErrorDetail(string='This field is required.', code='required')]}
+ERROR 2020-11-08 10:15:14,285 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20413
+ERROR 2020-11-08 10:15:27,211 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'password': [ErrorDetail(string='密码必须大于六位数', code='invalid')], 'code': [ErrorDetail(string='This field is required.', code='required')]}
+ERROR 2020-11-08 10:15:27,223 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20413
+ERROR 2020-11-08 10:15:40,147 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'code': [ErrorDetail(string='This field is required.', code='required')]}
+ERROR 2020-11-08 10:15:40,160 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20251
+ERROR 2020-11-08 10:15:45,347 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'code': [ErrorDetail(string='This field is required.', code='required')]}
+ERROR 2020-11-08 10:15:45,359 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20251
+ERROR 2020-11-08 10:15:58,067 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'code': [ErrorDetail(string='This field is required.', code='required')]}
+ERROR 2020-11-08 10:15:58,080 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20251
+ERROR 2020-11-08 10:18:46,370 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'password': [ErrorDetail(string='密码必须大于六位数', code='invalid')], 'code': [ErrorDetail(string='This field may not be blank.', code='blank')]}
+ERROR 2020-11-08 10:18:46,382 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20417
+ERROR 2020-11-08 10:29:56,013 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'password': [ErrorDetail(string='密码必须是数字和字母的混合', code='invalid')]}
+ERROR 2020-11-08 10:29:56,131 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20289
+ERROR 2020-11-08 10:30:59,254 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'password': [ErrorDetail(string='密码必须是数字和字母的混合', code='invalid')]}
+ERROR 2020-11-08 10:30:59,271 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20288
+ERROR 2020-11-08 10:32:03,840 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'non_field_errors': [ErrorDetail(string='验证码错误', code='invalid')]}
+ERROR 2020-11-08 10:32:03,965 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20257
+ERROR 2020-11-08 11:04:50,407 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 190, in post
+    return self.create(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 18, in create
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'non_field_errors': [ErrorDetail(string='验证码错误', code='invalid')]}
+ERROR 2020-11-08 11:04:50,419 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20257
+ERROR 2020-11-08 11:16:08,855 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\百知课堂\5.web进阶\code\drf_project\drf_project\apps\user\views.py", line 55, in post
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'non_field_errors': [ErrorDetail(string='验证码错误', code='invalid')]}
+ERROR 2020-11-08 11:16:08,871 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20135
+ERROR 2020-11-08 11:36:03,138 exception 118 Internal Server Error: /user/message_login/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 167, in http_method_not_allowed
+    raise exceptions.MethodNotAllowed(request.method)
+rest_framework.exceptions.MethodNotAllowed: Method "GET" not allowed.
+ERROR 2020-11-08 11:36:03,154 basehttp 124 "GET /user/message_login/ HTTP/1.1" 500 19908
+ERROR 2020-11-08 12:49:06,132 exception 118 Internal Server Error: /user/message_login/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 167, in http_method_not_allowed
+    raise exceptions.MethodNotAllowed(request.method)
+rest_framework.exceptions.MethodNotAllowed: Method "POST" not allowed.
+ERROR 2020-11-08 12:49:06,147 basehttp 124 "POST /user/message_login/ HTTP/1.1" 500 19912
+ERROR 2020-11-08 12:51:53,209 exception 118 Internal Server Error: /user/message_login/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 499, in dispatch
+    self.response = self.finalize_response(request, response, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 414, in finalize_response
+    % type(response)
+AssertionError: Expected a `Response`, `HttpResponse` or `HttpStreamingResponse` to be returned from the view, but received a `<class 'user.models.User'>`
+ERROR 2020-11-08 12:51:53,628 basehttp 124 "GET /user/message_login/?phone=15735218978&code=548213 HTTP/1.1" 500 86788
+ERROR 2020-11-08 12:53:09,955 exception 118 Internal Server Error: /user/message_login/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 499, in dispatch
+    self.response = self.finalize_response(request, response, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 414, in finalize_response
+    % type(response)
+AssertionError: Expected a `Response`, `HttpResponse` or `HttpStreamingResponse` to be returned from the view, but received a `<class 'dict'>`
+ERROR 2020-11-08 12:53:09,994 basehttp 124 "GET /user/message_login/?phone=15735218978&code=548213 HTTP/1.1" 500 87234
+ERROR 2020-11-08 14:37:55,749 exception 118 Internal Server Error: /user/register/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\百知课堂\5.web进阶\code\drf_project\drf_project\apps\user\views.py", line 60, in post
+    serializer.is_valid(raise_exception=True)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'non_field_errors': [ErrorDetail(string='验证码错误', code='invalid')]}
+ERROR 2020-11-08 14:37:56,126 basehttp 124 "POST /user/register/ HTTP/1.1" 500 20135
+ERROR 2020-11-09 21:37:10,257 exception 118 Internal Server Error: /course/course_list/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\rest_framework\pagination.py", line 203, in paginate_queryset
+    self.page = paginator.page(page_number)
+  File "F:\virtual\demo\lib\site-packages\django\core\paginator.py", line 65, in page
+    number = self.validate_number(number)
+  File "F:\virtual\demo\lib\site-packages\django\core\paginator.py", line 47, in validate_number
+    raise EmptyPage(_('That page contains no results'))
+django.core.paginator.EmptyPage: That page contains no results
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 199, in get
+    return self.list(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\pagination.py", line 208, in paginate_queryset
+    raise NotFound(msg)
+rest_framework.exceptions.NotFound: Invalid page.
+ERROR 2020-11-09 21:37:10,520 basehttp 124 "GET /course/course_list/?size=2&page=4&course_category=2&ordering=-id HTTP/1.1" 500 20975
+ERROR 2020-11-09 21:37:12,457 exception 118 Internal Server Error: /course/course_list/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\rest_framework\pagination.py", line 203, in paginate_queryset
+    self.page = paginator.page(page_number)
+  File "F:\virtual\demo\lib\site-packages\django\core\paginator.py", line 65, in page
+    number = self.validate_number(number)
+  File "F:\virtual\demo\lib\site-packages\django\core\paginator.py", line 47, in validate_number
+    raise EmptyPage(_('That page contains no results'))
+django.core.paginator.EmptyPage: That page contains no results
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 199, in get
+    return self.list(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\pagination.py", line 208, in paginate_queryset
+    raise NotFound(msg)
+rest_framework.exceptions.NotFound: Invalid page.
+ERROR 2020-11-09 21:37:12,476 basehttp 124 "GET /course/course_list/?size=2&page=4&course_category=6&ordering=-id HTTP/1.1" 500 20975
+ERROR 2020-11-09 21:37:18,035 exception 118 Internal Server Error: /course/course_list/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\rest_framework\pagination.py", line 203, in paginate_queryset
+    self.page = paginator.page(page_number)
+  File "F:\virtual\demo\lib\site-packages\django\core\paginator.py", line 65, in page
+    number = self.validate_number(number)
+  File "F:\virtual\demo\lib\site-packages\django\core\paginator.py", line 47, in validate_number
+    raise EmptyPage(_('That page contains no results'))
+django.core.paginator.EmptyPage: That page contains no results
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 199, in get
+    return self.list(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\pagination.py", line 208, in paginate_queryset
+    raise NotFound(msg)
+rest_framework.exceptions.NotFound: Invalid page.
+ERROR 2020-11-09 21:37:18,054 basehttp 124 "GET /course/course_list/?size=2&page=4&course_category=3&ordering=-id HTTP/1.1" 500 20975
+ERROR 2020-11-09 21:38:22,329 basehttp 124 "GET /media/course/307a9365-a113-4df8-916a-7396aa898b65.jpg HTTP/1.1" 500 59
+ERROR 2020-11-09 21:39:56,611 exception 118 Internal Server Error: /course/course_list/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\rest_framework\pagination.py", line 203, in paginate_queryset
+    self.page = paginator.page(page_number)
+  File "F:\virtual\demo\lib\site-packages\django\core\paginator.py", line 65, in page
+    number = self.validate_number(number)
+  File "F:\virtual\demo\lib\site-packages\django\core\paginator.py", line 47, in validate_number
+    raise EmptyPage(_('That page contains no results'))
+django.core.paginator.EmptyPage: That page contains no results
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 199, in get
+    return self.list(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\pagination.py", line 208, in paginate_queryset
+    raise NotFound(msg)
+rest_framework.exceptions.NotFound: Invalid page.
+ERROR 2020-11-09 21:39:56,629 basehttp 124 "GET /course/course_list/?size=2&page=2&course_category=4&ordering=-id HTTP/1.1" 500 20975
+ERROR 2020-11-09 21:40:32,459 exception 118 Internal Server Error: /course/course_list/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\rest_framework\pagination.py", line 203, in paginate_queryset
+    self.page = paginator.page(page_number)
+  File "F:\virtual\demo\lib\site-packages\django\core\paginator.py", line 65, in page
+    number = self.validate_number(number)
+  File "F:\virtual\demo\lib\site-packages\django\core\paginator.py", line 47, in validate_number
+    raise EmptyPage(_('That page contains no results'))
+django.core.paginator.EmptyPage: That page contains no results
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 199, in get
+    return self.list(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\pagination.py", line 208, in paginate_queryset
+    raise NotFound(msg)
+rest_framework.exceptions.NotFound: Invalid page.
+ERROR 2020-11-09 21:40:32,479 basehttp 124 "GET /course/course_list/?size=2&page=2&course_category=6&ordering=-id HTTP/1.1" 500 20975
+ERROR 2020-11-09 21:40:39,217 exception 118 Internal Server Error: /course/course_list/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\rest_framework\pagination.py", line 203, in paginate_queryset
+    self.page = paginator.page(page_number)
+  File "F:\virtual\demo\lib\site-packages\django\core\paginator.py", line 65, in page
+    number = self.validate_number(number)
+  File "F:\virtual\demo\lib\site-packages\django\core\paginator.py", line 47, in validate_number
+    raise EmptyPage(_('That page contains no results'))
+django.core.paginator.EmptyPage: That page contains no results
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 199, in get
+    return self.list(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\pagination.py", line 208, in paginate_queryset
+    raise NotFound(msg)
+rest_framework.exceptions.NotFound: Invalid page.
+ERROR 2020-11-09 21:40:39,235 basehttp 124 "GET /course/course_list/?size=2&page=3&course_category=7&ordering=-id HTTP/1.1" 500 20975
+ERROR 2020-11-09 21:40:47,850 exception 118 Internal Server Error: /course/course_list/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\rest_framework\pagination.py", line 203, in paginate_queryset
+    self.page = paginator.page(page_number)
+  File "F:\virtual\demo\lib\site-packages\django\core\paginator.py", line 65, in page
+    number = self.validate_number(number)
+  File "F:\virtual\demo\lib\site-packages\django\core\paginator.py", line 47, in validate_number
+    raise EmptyPage(_('That page contains no results'))
+django.core.paginator.EmptyPage: That page contains no results
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 199, in get
+    return self.list(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\pagination.py", line 208, in paginate_queryset
+    raise NotFound(msg)
+rest_framework.exceptions.NotFound: Invalid page.
+ERROR 2020-11-09 21:40:47,868 basehttp 124 "GET /course/course_list/?size=2&page=2&course_category=7&ordering=-id HTTP/1.1" 500 20975
+ERROR 2020-11-09 21:40:48,606 exception 118 Internal Server Error: /course/course_list/
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\rest_framework\pagination.py", line 203, in paginate_queryset
+    self.page = paginator.page(page_number)
+  File "F:\virtual\demo\lib\site-packages\django\core\paginator.py", line 65, in page
+    number = self.validate_number(number)
+  File "F:\virtual\demo\lib\site-packages\django\core\paginator.py", line 47, in validate_number
+    raise EmptyPage(_('That page contains no results'))
+django.core.paginator.EmptyPage: That page contains no results
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "F:\virtual\demo\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\django\views\generic\base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    response = self.handle_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 457, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 468, in raise_uncaught_exception
+    raise exc
+  File "F:\virtual\demo\lib\site-packages\rest_framework\views.py", line 494, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 199, in get
+    return self.list(request, *args, **kwargs)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+  File "F:\virtual\demo\lib\site-packages\rest_framework\pagination.py", line 208, in paginate_queryset
+    raise NotFound(msg)
+rest_framework.exceptions.NotFound: Invalid page.
+ERROR 2020-11-09 21:40:48,626 basehttp 124 "GET /course/course_list/?size=2&page=3&course_category=7&ordering=-id HTTP/1.1" 500 20975

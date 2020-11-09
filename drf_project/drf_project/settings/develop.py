@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'home',
     'user',
+    'course'
 ]
 
 MIDDLEWARE = [
@@ -209,3 +210,25 @@ AUTH_USER_MODEL = 'user.User'
 
 #指定多条件认证类
 AUTHENTICATION_BACKENDS = ['user.utils.UserAuthBackend']
+
+# redis相关配置
+CACHES = {
+    # 默认配置
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        # 连接的redis的库
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    },
+    # 短信
+    "sms_code": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        # 连接的redis的库
+        "LOCATION": "redis://127.0.0.1:6379/2",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}

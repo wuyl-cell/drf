@@ -35,7 +35,7 @@
                     <div class="login-box full-left">
                         <router-link to="/login">登录</router-link>
                         &nbsp;|&nbsp;
-                        <span>注册</span>
+                        <router-link to="/register">注册</router-link>
                     </div>
                 </div>
             </div>
@@ -62,7 +62,6 @@ export default {
             )
         },
         get_user(){
-            console.log(sessionStorage.token)
             this.token = sessionStorage.token
             if(sessionStorage.token){
                 this.is_login = true

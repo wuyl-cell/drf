@@ -1,3 +1,5 @@
+import random
+
 from django.contrib.auth.backends import ModelBackend
 from django.db.models import Q
 
@@ -28,3 +30,12 @@ class UserAuthBackend(ModelBackend):
             return user
         else:
             return None
+
+def random_code():
+    s = ''
+    for i in range(6):
+        a = str(random.randint(0,9))
+        s += a
+    return s
+
+
