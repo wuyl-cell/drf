@@ -10,16 +10,11 @@
                         <a v-if="h_nav.is_site" :href="h_nav.link">{{ h_nav.title }}</a>
                         <router-link v-else :to="h_nav.link">{{ h_nav.title }}</router-link>
                     </li>
-<!--                    <li><span>Java进阶之路</span></li>-->
-<!--                    <li><span>大数据成功法门</span></li>-->
-<!--                    <li><span>Python全栈</span></li>-->
-<!--                    <li><span>人工智能的魅力</span></li>-->
-<!--                    <li><span>百知教育</span></li>-->
                 </ul>
-                <div class="login-bar full-right" v-if="is_login">
+                <div class="login-bar full-right"  v-if="is_login">
                     <div class="shop-cart full-left">
                         <img src="/static/image/cart.svg" alt="">
-                        <span><router-link to="/cart">购物车</router-link></span>
+                        <span><router-link to="/cart">{{this.$store.state.cart_length}}购物车</router-link></span>
                     </div>
                     <div class="login-box full-left">
                         <span>个人中心</span>
@@ -27,17 +22,15 @@
                         <span @click="del_token">退出登陆</span>
                     </div>
                 </div>
-                <div class="login-bar full-right" v-else>
-                    <div class="shop-cart full-left">
-                        <img src="/static/image/cart.svg" alt="">
-                        <span><router-link to="/cart">购物车</router-link></span>
-                    </div>
-                    <div class="login-box full-left">
+                    <div class="login-bar full-right"  v-else>
+                    <div class="login-box full-left" >
                         <router-link to="/login">登录</router-link>
                         &nbsp;|&nbsp;
                         <router-link to="/register">注册</router-link>
                     </div>
                 </div>
+
+
             </div>
         </div>
     </div>
@@ -50,7 +43,6 @@ export default {
         return {
             h_nav_list: [],
             is_login: false,
-            // token: '',
         }
     },
     methods: {
@@ -73,12 +65,29 @@ export default {
         del_token(){
             sessionStorage.removeItem('token')
             this.$router.push('/login')
+        },
+        get_cart_num(){
+            let token = sessionStorage.getItem('token')
+            if(token){
+                this.$axios({
+                    url: this.$settings.HOST + 'home/cart_len/',
+                    method: "get",
+                    headers: {
+                        "Authorization": "jwt " + token
+                    }
+                }).then(
+                    res => {
+                        this.$store.commit('add_cart', res.data.cart_len)
+                    }
+                ).catch(
+                )
+            }
         }
     },
     created() {
         this.get_nav();
         this.get_user();
-
+        this.get_cart_num();
     }
 }
 </script>

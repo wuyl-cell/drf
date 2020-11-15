@@ -1,6 +1,7 @@
 import xadmin
 
-from course.models import CourseCategory, Course, Teacher, CourseChapter, CourseLesson
+from course.models import CourseCategory, Course, Teacher, CourseChapter, CourseLesson, CourseExpire, \
+    CoursePriceDiscount, Activity, CourseDiscount, CourseDiscountType
 
 
 class CourseCategoryModelAdmin(object):
@@ -25,3 +26,8 @@ xadmin.site.register(Course, CourseModelAdmin)
 xadmin.site.register(Teacher, TeacherModelAdmin)
 xadmin.site.register(CourseChapter, CourseChapterModelAdmin)
 xadmin.site.register(CourseLesson, CourseLessonModelAdmin)
+xadmin.site.register(CourseExpire)
+xadmin.site.register(CoursePriceDiscount)
+xadmin.site.register(Activity)
+xadmin.site.register(CourseDiscount)
+xadmin.site.register(CourseDiscountType)

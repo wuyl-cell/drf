@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.db import models
 
 # Create your models here.
@@ -6,7 +8,7 @@ from django.db import models
 from home.basemodel import BaseModel
 
 
-#课程分类
+# 课程分类
 class CourseCategory(BaseModel):
     """
     课程分类
@@ -58,6 +60,7 @@ class Course(BaseModel):
     pub_lessons = models.IntegerField(verbose_name="课时更新数量", default=0)
     price = models.DecimalField(max_digits=6, decimal_places=2, verbose_name="课程原价", default=0)
     teacher = models.ForeignKey("Teacher", on_delete=models.DO_NOTHING, null=True, blank=True, verbose_name="授课老师")
+    course_video = models.FileField(upload_to='video', null=True, blank=True, verbose_name='课程视频')
 
     @property
     def lesson_list(self):
@@ -74,6 +77,94 @@ class Course(BaseModel):
 
         return data_list
 
+    @property
+    def level_model(self):
+        return self.level_choices[self.level][1]
+
+    def active_list(self):
+        active_list = self.activeprices.filter(is_show=True, is_delete=False, active__end_time__gt=datetime.now(),
+                                               active__start_time__lt=datetime.now()).order_by('orders')
+
+        return active_list
+
+    @property
+    def discount_name(self):
+        name = ''
+        active_list = self.active_list()
+        if len(active_list):
+            active = active_list[0]
+            name = active.discount.discount_type.name
+        return name
+
+    @property
+    def real_price(self):
+        real_price = self.count_price(self.price)
+        return real_price
+
+    # 返回活动的剩余时间
+    @property
+    def active_time(self):
+        time = 0
+        active_list = self.active_list()
+        if len(active_list):
+            active = active_list[0]
+
+            now_time = datetime.now().timestamp()
+            active_end_time = active.active.end_time.timestamp()
+            time = active_end_time - now_time
+        return int(time)
+
+    # 返回课程的有效期列表
+    @property
+    def expire_text(self):
+        expires = self.course_expire.filter()
+        data = []
+        for expire in expires:
+            real_price = self.count_price(expire.price)
+            data.append({
+                'expire_id': expire.id,
+                'expire_text': expire.expire_text,
+                'price': real_price
+            })
+        if self.price > 0:
+            data.append({
+                'expire_id': 0,
+                'expire_text': '永久有效',
+                'price': self.real_price
+            })
+        return data
+
+    def count_price(self, price):
+        price = float(price)
+        active_list = self.active_list()
+        if len(active_list):
+            active = active_list[0]
+            condition = active.discount.condition
+            sale = active.discount.sale
+
+            if price >= condition:
+                if sale == '':
+                    price = 0
+                elif sale[0] == '*':
+                    price = price * float(sale[1:])
+                elif sale[0] == '-':
+                    price = price - float(sale[1:])
+                elif sale[0] == '满':
+                    # split的输出为['满500-80', '满400-40', '满300-20', '满200-10']
+                    split = sale.split('\r\n')
+                    # sale_list中存放满足门槛价的所有可以减的价钱
+                    sale_list = []
+                    for item in split:
+                        sale_item = item[1:]
+                        # 门槛价
+                        condition_price, condition_sale = sale_item.split('-')
+                        # 判断价钱是否达到门槛价
+                        if price >= float(condition_price):
+                            sale_list.append(float(condition_sale))
+                    if len(sale_list):
+                        price = price - max(sale_list)
+        return price
+
 
     class Meta:
         db_table = "bz_course"
@@ -82,7 +173,6 @@ class Course(BaseModel):
 
     def __str__(self):
         return "%s" % self.name
-
 
 
 class Teacher(BaseModel):
@@ -154,3 +244,95 @@ class CourseLesson(BaseModel):
     def __str__(self):
         return "%s-%s" % (self.chapter, self.name)
 
+
+# 课程优惠类型
+class CourseDiscountType(BaseModel):
+    """课程优惠类型"""
+    name = models.CharField(max_length=32, verbose_name="优惠类型名称")
+    remark = models.CharField(max_length=250, blank=True, null=True, verbose_name="备注信息")
+
+    class Meta:
+        db_table = "bz_course_discount_type"
+        verbose_name = "课程优惠类型"
+        verbose_name_plural = "课程优惠类型"
+
+    def __str__(self):
+        return "%s" % (self.name)
+
+
+# 课程优惠折扣模型
+class CourseDiscount(BaseModel):
+    """课程优惠折扣模型"""
+    discount_type = models.ForeignKey("CourseDiscountType", on_delete=models.CASCADE, related_name='coursediscounts',
+                                      verbose_name="优惠类型")
+    condition = models.IntegerField(blank=True, default=0, verbose_name="满足优惠的价格条件",
+                                    help_text="设置参与优惠的价格门槛，表示商品必须在xx价格以上的时候才参与优惠活动，<br>如果不填，则不设置门槛")
+    sale = models.TextField(verbose_name="优惠公式", blank=True, null=True, help_text="""
+    不填表示免费；<br>
+    *号开头表示折扣价，例如*0.82表示八二折；<br>
+    -号开头则表示减免，例如-20表示原价-20；<br>
+    如果需要表示满减,则需要使用 原价-优惠价格,例如表示课程价格大于100,优惠10;大于200,优惠20,格式如下:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;满100-10<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;满200-25<br>
+    """)
+
+    class Meta:
+        db_table = "bz_course_discount"
+        verbose_name = "价格优惠策略"
+        verbose_name_plural = "价格优惠策略"
+
+    def __str__(self):
+        return "价格优惠:%s,优惠条件:%s,优惠值:%s" % (self.discount_type.name, self.condition, self.sale)
+
+
+# 优惠活动
+class Activity(BaseModel):
+    """优惠活动"""
+    name = models.CharField(max_length=150, verbose_name="活动名称")
+    start_time = models.DateTimeField(verbose_name="优惠策略的开始时间")
+    end_time = models.DateTimeField(verbose_name="优惠策略的结束时间")
+    remark = models.CharField(max_length=250, blank=True, null=True, verbose_name="备注信息")
+
+    class Meta:
+        db_table = "bz_activity"
+        verbose_name = "商品活动"
+        verbose_name_plural = "商品活动"
+
+    def __str__(self):
+        return self.name
+
+
+# 课程与优惠策略的关系表
+class CoursePriceDiscount(BaseModel):
+    """课程与优惠策略的关系表"""
+    course = models.ForeignKey("Course", on_delete=models.CASCADE, related_name="activeprices", verbose_name="课程")
+    active = models.ForeignKey("Activity", on_delete=models.DO_NOTHING, related_name="activecourses", verbose_name="活动")
+    discount = models.ForeignKey("CourseDiscount", on_delete=models.CASCADE, related_name="discountcourse",
+                                 verbose_name="优惠折扣")
+
+    class Meta:
+        db_table = "bz_course_price_discount"
+        verbose_name = "课程与优惠策略的关系表"
+        verbose_name_plural = "课程与优惠策略的关系表"
+
+    def __str__(self):
+        return "课程：%s，优惠活动: %s,开始时间:%s,结束时间:%s" % (
+            self.course.name, self.active.name, self.active.start_time, self.active.end_time)
+
+
+# 课程有效期模型
+class CourseExpire(BaseModel):
+    """课程有效期模型"""
+    course = models.ForeignKey("Course", related_name='course_expire', on_delete=models.CASCADE,
+                               verbose_name="课程名称")
+    expire_time = models.IntegerField(verbose_name="有效期", null=True, blank=True, help_text="有效期按天数计算")
+    expire_text = models.CharField(max_length=150, verbose_name="提示文本", null=True, blank=True)
+    price = models.DecimalField(max_digits=6, decimal_places=2, verbose_name="课程价格", default=0)
+
+    class Meta:
+        db_table = "bz_course_expire"
+        verbose_name = "课程有效期"
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return "课程：%s，有效期：%s，价格：%s" % (self.course, self.expire_text, self.price)

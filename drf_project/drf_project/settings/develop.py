@@ -29,7 +29,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -46,7 +45,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'home',
     'user',
-    'course'
+    'course',
+    'cart',
+    'order'
 ]
 
 MIDDLEWARE = [
@@ -81,7 +82,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'drf_project.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
@@ -95,7 +95,6 @@ DATABASES = {
         'PASSWORD': '123456'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -115,7 +114,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
@@ -127,8 +125,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
-
+USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
@@ -197,18 +194,17 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
     ]
 }
-#jwt配置
+# jwt配置
 JWT_AUTH = {
     'JWT_EXPIRATIONS_DELTA': datetime.timedelta(seconds=300),
     'JWT_RESPONSE_PAYLOAD_HANDLER':
         'user.utils.jwt_response_payload_handler',
 }
 
-
 CORS_ORIGIN_ALLOW_ALL = True
 AUTH_USER_MODEL = 'user.User'
 
-#指定多条件认证类
+# 指定多条件认证类
 AUTHENTICATION_BACKENDS = ['user.utils.UserAuthBackend']
 
 # redis相关配置
@@ -230,5 +226,13 @@ CACHES = {
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
-    }
+    },
+    "cart": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        # 连接的redis的库
+        "LOCATION": "redis://127.0.0.1:6379/3",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    },
 }

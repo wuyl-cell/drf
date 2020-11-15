@@ -1,25 +1,44 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import store from './store'
+
+// 导入element-ui 以及样式
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
-import '../static/css/global.css'
-import axios from 'axios'
+import "element-ui/lib/theme-chalk/index.css"
+
+// 导入全局样式
+import "../static/css/global.css"
+
 import settings from "./settings";
-import '../static/js/gt'
 
 Vue.prototype.$settings = settings;
-Vue.config.productionTip = false
-Vue.use(ElementUI)
+
+// 配置axios
+import axios from "axios"
+// 将axios注入到vue实例
 Vue.prototype.$axios = axios
+
+// 导入极验的js
+import "../static/js/gt"
+
+// 全局注册
+Vue.use(ElementUI)
+
+// vue-vedie的配置
+require('video.js/dist/video-js.css');
+require('vue-video-player/src/custom-theme.css');
+import VideoPlayer from 'vue-video-player'
+Vue.use(VideoPlayer);
+
+Vue.config.productionTip = false
+
+import store from "./store/index"
+
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  components: { App },
-  template: '<App/>',
-  store
+    el: '#app',
+    router,
+    components: {App},
+    template: '<App/>',
+    store,
 })

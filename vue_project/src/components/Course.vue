@@ -25,8 +25,9 @@
             <!-- 课程列表 -->
             <div class="course-list">
                 <div class="course-item" v-for="course in course_list">
+                    <router-link :to="'/detail/'+course.id ">
                     <div class="course-image">
-                        <img :src="course.course_img" alt="">
+                        <img :src="course.course_img" alt="" height="220px" width="90px">
                     </div>
                     <div class="course-info">
                         <h3>{{ course.name }} <span><img src="/static/image/avatar1.svg" alt="">{{ course.students }}人已加入学习</span></h3>
@@ -38,12 +39,13 @@
                                 <span class="free" v-show="lesson.free_trail">免费</span></li>
                         </ul>
                         <div class="pay-box">
-                            <span class="discount-type">限时免费</span>
-                            <span class="discount-price">￥0.00元</span>
+                            <span class="discount-type" v-show="course.discount_name">{{ course.discount_name }}</span>
+                            <span class="discount-price">￥{{ course.real_price }}元</span>
                             <span class="original-price">原价：{{ course.price }}元</span>
                             <span class="buy-now">立即购买</span>
                         </div>
                     </div>
+                    </router-link>
                 </div>
             </div>
             <el-pagination
@@ -147,10 +149,9 @@ export default {
                 params: filters
             }).then(
                 res => {
-                    console.log(res.data);
                     this.course_list = res.data.results
                     this.total = res.data.count;
-                    console.log(this.total)
+                    console.log(res.data);
                 }
             ).catch(
                 error => {
